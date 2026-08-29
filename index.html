@@ -17,18 +17,53 @@
     }
 
     body {
-      background: #f1f4fb;
       font-family: 'Inter', sans-serif;
-      padding: 2rem 1.5rem;
-      color: #141b2b;
       min-height: 100vh;
       display: flex;
       justify-content: center;
+      align-items: center;
+      padding: 2rem 1.5rem;
+      background: #0d1117;
+      /* Background dinamis: gradien + pola + animasi */
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(108, 124, 255, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(160, 108, 255, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 40% 90%, rgba(255, 122, 92, 0.06) 0%, transparent 40%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 2px, transparent 2px, transparent 8px);
+      background-color: #0d1117;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* efek bintang / partikel halus */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: 
+        radial-gradient(2px 2px at 20px 30px, #ffffff30, transparent),
+        radial-gradient(2px 2px at 40px 70px, #ffffff20, transparent),
+        radial-gradient(2px 2px at 50px 160px, #ffffff30, transparent),
+        radial-gradient(2px 2px at 90px 40px, #ffffff20, transparent),
+        radial-gradient(2px 2px at 130px 80px, #ffffff30, transparent),
+        radial-gradient(2px 2px at 160px 30px, #ffffff20, transparent),
+        radial-gradient(1px 1px at 300px 200px, #ffffff40, transparent),
+        radial-gradient(1px 1px at 400px 100px, #ffffff30, transparent),
+        radial-gradient(1px 1px at 500px 300px, #ffffff20, transparent),
+        radial-gradient(1px 1px at 700px 150px, #ffffff30, transparent),
+        radial-gradient(1px 1px at 900px 400px, #ffffff20, transparent),
+        radial-gradient(1px 1px at 1100px 250px, #ffffff30, transparent);
+      background-size: 200px 200px;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
     }
 
     .dashboard {
       max-width: 1440px;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
 
     /* ----- HEADER ----- */
@@ -48,7 +83,7 @@
     }
 
     .header-left .logo-icon {
-      background: linear-gradient(145deg, #222b3f, #141b2b);
+      background: linear-gradient(145deg, #2a334a, #181f30);
       color: white;
       width: 52px;
       height: 52px;
@@ -57,29 +92,32 @@
       align-items: center;
       justify-content: center;
       font-size: 1.8rem;
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .header-left h1 {
       font-weight: 700;
       font-size: 2rem;
       letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #1a1e2b, #2c3450);
+      background: linear-gradient(135deg, #e8edff, #b0bef5);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      text-shadow: 0 2px 10px rgba(108, 124, 255, 0.15);
     }
 
     .badge-rest {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 0.6rem 1.6rem;
       border-radius: 60px;
       font-weight: 600;
       font-size: 0.9rem;
-      color: #1c253b;
-      border: 1px solid rgba(255, 255, 255, 0.8);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      color: #c8d0f0;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 
     .badge-rest i {
@@ -87,10 +125,11 @@
       margin-right: 10px;
     }
 
-    /* ----- PROGRESS BAR (global) ----- */
+    /* ----- PROGRESS BAR ----- */
     .progress-wrap {
-      background: rgba(255, 255, 255, 0.6);
-      backdrop-filter: blur(4px);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-radius: 60px;
       padding: 0.4rem 1rem 0.4rem 1.6rem;
       display: flex;
@@ -98,8 +137,8 @@
       gap: 1.2rem;
       flex-wrap: wrap;
       margin-bottom: 2.2rem;
-      border: 1px solid rgba(255, 255, 255, 0.7);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
     }
 
     .progress-label {
@@ -107,35 +146,36 @@
       align-items: center;
       gap: 10px;
       font-weight: 600;
-      color: #1f2840;
+      color: #bcc6e6;
     }
 
     .progress-label i {
-      color: #4b5a7a;
+      color: #7a8bcf;
     }
 
     .progress-track {
       flex: 1;
       min-width: 140px;
       height: 8px;
-      background: #dfe6f2;
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 40px;
       overflow: hidden;
-      box-shadow: inset 0 1px 3px rgba(0,0,0,0.04);
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.4);
     }
 
     .progress-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, #6c7cff, #a06cff);
+      background: linear-gradient(90deg, #6c7cff, #a06cff, #ff7a5c);
       border-radius: 40px;
-      transition: width 0.25s ease;
+      transition: width 0.3s ease;
+      box-shadow: 0 0 16px rgba(108, 124, 255, 0.4);
     }
 
     .progress-text {
       font-weight: 600;
       font-size: 0.9rem;
-      color: #1e2740;
+      color: #c8d0f0;
       min-width: 60px;
       text-align: right;
     }
@@ -150,32 +190,33 @@
 
     /* ----- CARD HARI ----- */
     .day-card {
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border-radius: 28px;
       padding: 1.5rem 1rem 1.2rem;
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.02), 0 4px 12px rgba(0, 0, 0, 0.02);
-      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      transition: all 0.25s ease;
       display: flex;
       flex-direction: column;
     }
 
     .day-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.04), 0 6px 16px rgba(0, 0, 0, 0.02);
-      background: rgba(255, 255, 255, 0.85);
+      transform: translateY(-6px);
+      border-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+      background: rgba(255, 255, 255, 0.07);
     }
 
     .day-card.rest-day {
-      background: rgba(238, 243, 255, 0.5);
-      border: 1.5px dashed #bac6e2;
-      opacity: 0.8;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1.5px dashed rgba(255, 255, 255, 0.08);
+      opacity: 0.7;
     }
 
     .day-card.rest-day .day-label i {
-      color: #9aabcc;
+      color: #6a7aa0;
     }
 
     .day-label {
@@ -185,15 +226,15 @@
       font-weight: 700;
       font-size: 1.2rem;
       letter-spacing: -0.3px;
-      color: #141d33;
-      border-bottom: 2px solid rgba(0, 0, 0, 0.03);
+      color: #e8edff;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
       padding-bottom: 0.7rem;
       margin-bottom: 1rem;
     }
 
     .day-label i {
       font-size: 1.2rem;
-      color: #3f4b6b;
+      color: #7a8bcf;
       width: 1.8rem;
       text-align: center;
     }
@@ -215,28 +256,30 @@
       padding: 0.25rem 0.2rem;
       border-radius: 10px;
       transition: background 0.1s;
-      color: #1b233b;
+      color: #d0d8f0;
       cursor: default;
     }
 
     .exercise-list li input[type="checkbox"] {
       width: 18px;
       height: 18px;
-      accent-color: #5f72e0;
+      accent-color: #7a8bff;
       cursor: pointer;
       flex-shrink: 0;
       border-radius: 6px;
       transition: 0.1s;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
     }
 
     .exercise-list li input[type="checkbox"]:checked + span {
       text-decoration: line-through;
-      opacity: 0.6;
-      color: #3d4a6b;
+      opacity: 0.5;
+      color: #9aa8d0;
     }
 
     .exercise-list li i {
-      color: #5b6a8a;
+      color: #6a7aaa;
       font-size: 0.85rem;
       width: 1.2rem;
       text-align: center;
@@ -255,34 +298,35 @@
       align-items: center;
       justify-content: center;
       padding: 1.8rem 0 0.8rem;
-      color: #5d6e90;
+      color: #8899c0;
       font-weight: 500;
       gap: 6px;
     }
 
     .rest-message i {
       font-size: 2.6rem;
-      color: #c2d0eb;
+      color: #4a5a7a;
       margin-bottom: 6px;
+      opacity: 0.6;
     }
 
     .rest-message small {
       font-weight: 400;
       font-size: 0.75rem;
-      opacity: 0.6;
+      opacity: 0.5;
     }
 
     /* Minggu card tambahan */
     .cardio-note {
       margin-top: 0.6rem;
-      opacity: 0.6;
+      opacity: 0.5;
       font-size: 0.8rem;
       display: flex;
       gap: 6px;
       align-items: center;
-      color: #33405e;
+      color: #a0b0d0;
       font-weight: 500;
-      border-top: 1px solid rgba(0,0,0,0.03);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
       padding-top: 0.6rem;
     }
 
@@ -294,18 +338,23 @@
       align-items: center;
       gap: 1.2rem;
       flex-wrap: wrap;
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 0.9rem 2rem;
       border-radius: 60px;
-      border: 1px solid rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
       width: fit-content;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
     }
 
     .footer-note i {
-      color: #3d4b6a;
+      color: #7a8bcf;
       font-size: 1.1rem;
+    }
+
+    .footer-note span {
+      color: #bcc6e6;
     }
 
     .footer-note .dot {
@@ -318,7 +367,7 @@
     }
 
     .footer-note .rest-dot {
-      background: #b2c2df;
+      background: #4a5a7a;
     }
 
     /* responsive */
@@ -478,16 +527,15 @@
 
   <!-- FOOTER -->
   <div class="footer-note">
-    <i class="fas fa-check-circle" style="color: #5f72e0;"></i>
-    <span><span class="dot"></span> Selasa & Jumat <strong>istirahat</strong> · 5 hari latihan</span>
-    <span style="opacity:0.4; margin-left: 2px;">|</span>
+    <i class="fas fa-check-circle" style="color: #7a8bff;"></i>
+    <span><span class="dot"></span> Selasa & Jumat <strong style="color:#e8edff;">istirahat</strong> · 5 hari latihan</span>
+    <span style="opacity:0.3; margin-left: 2px;">|</span>
     <span><i class="far fa-clock" style="margin-right: 6px;"></i> checklist latihan</span>
   </div>
 </div>
 
 <script>
   (function() {
-    // ambil semua checkbox di dalam .exercise-list
     const checkboxes = document.querySelectorAll('.exercise-list input[type="checkbox"]');
     const progressFill = document.getElementById('progressFill');
     const progressText = document.getElementById('progressText');
@@ -506,16 +554,10 @@
       progressText.textContent = percent + '%';
     }
 
-    // event listener untuk semua checkbox
     checkboxes.forEach(cb => {
       cb.addEventListener('change', updateProgress);
     });
 
-    // inisialisasi
-    updateProgress();
-
-    // opsional: simpan status checkbox ke localStorage (biar tetap tersimpan)
-    // simpan saat berubah
     function saveState() {
       const states = [];
       checkboxes.forEach(cb => {
@@ -538,12 +580,10 @@
       } catch (e) {}
     }
 
-    // tambahkan event save
     checkboxes.forEach(cb => {
       cb.addEventListener('change', saveState);
     });
 
-    // load saat halaman dimuat
     loadState();
   })();
 </script>
