@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>💪 Gym Dashboard · Pro</title>
+  <title>💪 Gym Dashboard · Galaxy</title>
   <!-- Font & ikon -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -23,38 +23,67 @@
       justify-content: center;
       align-items: center;
       padding: 2rem 1.5rem;
-      background: #0d1117;
-      /* Background dinamis: gradien + pola + animasi */
+      /* GALAXY BACKGROUND - lebih berwarna dan dramatis */
+      background: #0a0a1a;
       background-image: 
-        radial-gradient(circle at 20% 30%, rgba(108, 124, 255, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(160, 108, 255, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 40% 90%, rgba(255, 122, 92, 0.06) 0%, transparent 40%),
-        repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 2px, transparent 2px, transparent 8px);
-      background-color: #0d1117;
+        radial-gradient(ellipse at 20% 30%, #2d1b69 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, #1b3b6b 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 50%, #4a1a5e 0%, transparent 60%),
+        radial-gradient(ellipse at 10% 90%, #1a2a5e 0%, transparent 40%),
+        radial-gradient(ellipse at 90% 20%, #3a1a4e 0%, transparent 35%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 3px, transparent 3px, transparent 10px);
+      background-color: #0a0a1a;
       position: relative;
       overflow-x: hidden;
     }
 
-    /* efek bintang / partikel halus */
+    /* BINTANG GALAKSI - lebih banyak dan berwarna */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background-image: 
-        radial-gradient(2px 2px at 20px 30px, #ffffff30, transparent),
-        radial-gradient(2px 2px at 40px 70px, #ffffff20, transparent),
-        radial-gradient(2px 2px at 50px 160px, #ffffff30, transparent),
-        radial-gradient(2px 2px at 90px 40px, #ffffff20, transparent),
-        radial-gradient(2px 2px at 130px 80px, #ffffff30, transparent),
-        radial-gradient(2px 2px at 160px 30px, #ffffff20, transparent),
-        radial-gradient(1px 1px at 300px 200px, #ffffff40, transparent),
-        radial-gradient(1px 1px at 400px 100px, #ffffff30, transparent),
-        radial-gradient(1px 1px at 500px 300px, #ffffff20, transparent),
-        radial-gradient(1px 1px at 700px 150px, #ffffff30, transparent),
-        radial-gradient(1px 1px at 900px 400px, #ffffff20, transparent),
-        radial-gradient(1px 1px at 1100px 250px, #ffffff30, transparent);
+        radial-gradient(2px 2px at 10px 20px, #ffffff80, transparent),
+        radial-gradient(3px 3px at 60px 120px, #aaccff80, transparent),
+        radial-gradient(2px 2px at 120px 40px, #ffccaa80, transparent),
+        radial-gradient(4px 4px at 200px 300px, #ffffff60, transparent),
+        radial-gradient(2px 2px at 300px 80px, #ccaaff80, transparent),
+        radial-gradient(3px 3px at 450px 200px, #88ddff80, transparent),
+        radial-gradient(2px 2px at 550px 350px, #ffaacc80, transparent),
+        radial-gradient(2px 2px at 700px 150px, #ffffff90, transparent),
+        radial-gradient(3px 3px at 850px 400px, #aaccff80, transparent),
+        radial-gradient(2px 2px at 1000px 250px, #ffccaa80, transparent),
+        radial-gradient(4px 4px at 1150px 100px, #ccaaff70, transparent),
+        radial-gradient(2px 2px at 1300px 320px, #88ddff80, transparent),
+        radial-gradient(3px 3px at 200px 500px, #ffaacc80, transparent),
+        radial-gradient(2px 2px at 500px 600px, #ffffff70, transparent),
+        radial-gradient(2px 2px at 900px 550px, #aaccff80, transparent),
+        radial-gradient(2px 2px at 1200px 480px, #ffccaa80, transparent),
+        radial-gradient(3px 3px at 80px 650px, #ccaaff80, transparent),
+        radial-gradient(2px 2px at 400px 750px, #88ddff80, transparent),
+        radial-gradient(2px 2px at 800px 700px, #ffaacc80, transparent),
+        radial-gradient(3px 3px at 1100px 650px, #ffffff80, transparent);
       background-size: 200px 200px;
-      opacity: 0.5;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 0;
+      animation: twinkle 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.6; }
+      100% { opacity: 1; }
+    }
+
+    /* NEBULA EFFECT - tambahan warna-warni */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 30% 40%, rgba(100, 40, 180, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 70% 60%, rgba(30, 60, 180, 0.06) 0%, transparent 35%),
+        radial-gradient(circle at 50% 80%, rgba(180, 40, 120, 0.05) 0%, transparent 30%);
       pointer-events: none;
       z-index: 0;
     }
@@ -83,7 +112,8 @@
     }
 
     .header-left .logo-icon {
-      background: linear-gradient(145deg, #2a334a, #181f30);
+      background: linear-gradient(145deg, rgba(60, 40, 120, 0.6), rgba(20, 20, 50, 0.8));
+      backdrop-filter: blur(8px);
       color: white;
       width: 52px;
       height: 52px;
@@ -92,19 +122,19 @@
       align-items: center;
       justify-content: center;
       font-size: 1.8rem;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 8px 32px rgba(100, 60, 200, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .header-left h1 {
       font-weight: 700;
       font-size: 2rem;
       letter-spacing: -0.5px;
-      background: linear-gradient(135deg, #e8edff, #b0bef5);
+      background: linear-gradient(135deg, #e8edff, #b0bef5, #c8a0f0);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-shadow: 0 2px 10px rgba(108, 124, 255, 0.15);
+      text-shadow: 0 0 30px rgba(150, 100, 255, 0.15);
     }
 
     .badge-rest {
@@ -117,7 +147,7 @@
       font-size: 0.9rem;
       color: #c8d0f0;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     .badge-rest i {
@@ -138,7 +168,7 @@
       flex-wrap: wrap;
       margin-bottom: 2.2rem;
       border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
     .progress-label {
@@ -150,7 +180,7 @@
     }
 
     .progress-label i {
-      color: #7a8bcf;
+      color: #8a7adf;
     }
 
     .progress-track {
@@ -166,10 +196,10 @@
     .progress-fill {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, #6c7cff, #a06cff, #ff7a5c);
+      background: linear-gradient(90deg, #7a6aff, #a06cff, #ff7a5c, #ff5c8a);
       border-radius: 40px;
       transition: width 0.3s ease;
-      box-shadow: 0 0 16px rgba(108, 124, 255, 0.4);
+      box-shadow: 0 0 20px rgba(120, 100, 255, 0.4);
     }
 
     .progress-text {
@@ -180,7 +210,7 @@
       text-align: right;
     }
 
-    /* ----- GRID HARI ----- */
+    /* ----- GRID HARI (tanpa Selasa & Jumat) ----- */
     .grid-hari {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -190,13 +220,13 @@
 
     /* ----- CARD HARI ----- */
     .day-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.04);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
       border-radius: 28px;
       padding: 1.5rem 1rem 1.2rem;
       border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       transition: all 0.25s ease;
       display: flex;
       flex-direction: column;
@@ -205,18 +235,8 @@
     .day-card:hover {
       transform: translateY(-6px);
       border-color: rgba(255, 255, 255, 0.12);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
       background: rgba(255, 255, 255, 0.07);
-    }
-
-    .day-card.rest-day {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1.5px dashed rgba(255, 255, 255, 0.08);
-      opacity: 0.7;
-    }
-
-    .day-card.rest-day .day-label i {
-      color: #6a7aa0;
     }
 
     .day-label {
@@ -234,7 +254,7 @@
 
     .day-label i {
       font-size: 1.2rem;
-      color: #7a8bcf;
+      color: #8a7adf;
       width: 1.8rem;
       text-align: center;
     }
@@ -263,11 +283,10 @@
     .exercise-list li input[type="checkbox"] {
       width: 18px;
       height: 18px;
-      accent-color: #7a8bff;
+      accent-color: #8a7adf;
       cursor: pointer;
       flex-shrink: 0;
       border-radius: 6px;
-      transition: 0.1s;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.15);
     }
@@ -291,32 +310,7 @@
       transition: 0.1s;
     }
 
-    /* Rest message */
-    .rest-message {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 1.8rem 0 0.8rem;
-      color: #8899c0;
-      font-weight: 500;
-      gap: 6px;
-    }
-
-    .rest-message i {
-      font-size: 2.6rem;
-      color: #4a5a7a;
-      margin-bottom: 6px;
-      opacity: 0.6;
-    }
-
-    .rest-message small {
-      font-weight: 400;
-      font-size: 0.75rem;
-      opacity: 0.5;
-    }
-
-    /* Minggu card tambahan */
+    /* ----- CARD KHUSUS UNTUK MINGGU (cardio) ----- */
     .cardio-note {
       margin-top: 0.6rem;
       opacity: 0.5;
@@ -345,11 +339,11 @@
       border-radius: 60px;
       border: 1px solid rgba(255, 255, 255, 0.06);
       width: fit-content;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     }
 
     .footer-note i {
-      color: #7a8bcf;
+      color: #8a7adf;
       font-size: 1.1rem;
     }
 
@@ -364,10 +358,6 @@
       background: #ff7a5c;
       border-radius: 20px;
       margin-right: 6px;
-    }
-
-    .footer-note .rest-dot {
-      background: #4a5a7a;
     }
 
     /* responsive */
@@ -433,7 +423,7 @@
     <div class="progress-text" id="progressText">0%</div>
   </div>
 
-  <!-- GRID 5 HARI: SENIN, RABU, KAMIS, SABTU, MINGGU (selasa & jumat rest) -->
+  <!-- GRID HARI: SENIN, RABU, KAMIS, SABTU, MINGGU (Selasa & Jumat dihilangkan) -->
   <div class="grid-hari">
 
     <!-- SENIN -->
@@ -448,16 +438,6 @@
         <li><input type="checkbox" class="exercise-check" /> <i class="fas fa-arrow-up"></i> <span>Hip Abduction</span></li>
         <li><input type="checkbox" class="exercise-check" /> <i class="fas fa-arrow-up"></i> <span>Calf Raise</span></li>
       </ul>
-    </div>
-
-    <!-- SELASA (REST) -->
-    <div class="day-card rest-day">
-      <div class="day-label"><i class="fas fa-calendar-day"></i> Selasa</div>
-      <div class="rest-message">
-        <i class="fas fa-bed"></i>
-        <span>Hari istirahat</span>
-        <small>pulihkan tenaga</small>
-      </div>
     </div>
 
     <!-- RABU -->
@@ -489,16 +469,6 @@
       </ul>
     </div>
 
-    <!-- JUMAT (REST) -->
-    <div class="day-card rest-day">
-      <div class="day-label"><i class="fas fa-calendar-day"></i> Jumat</div>
-      <div class="rest-message">
-        <i class="fas fa-bed"></i>
-        <span>Hari istirahat</span>
-        <small>recovery aktif</small>
-      </div>
-    </div>
-
     <!-- SABTU -->
     <div class="day-card" data-day="sabtu">
       <div class="day-label"><i class="fas fa-calendar-day"></i> Sabtu</div>
@@ -527,7 +497,7 @@
 
   <!-- FOOTER -->
   <div class="footer-note">
-    <i class="fas fa-check-circle" style="color: #7a8bff;"></i>
+    <i class="fas fa-check-circle" style="color: #8a7adf;"></i>
     <span><span class="dot"></span> Selasa & Jumat <strong style="color:#e8edff;">istirahat</strong> · 5 hari latihan</span>
     <span style="opacity:0.3; margin-left: 2px;">|</span>
     <span><i class="far fa-clock" style="margin-right: 6px;"></i> checklist latihan</span>
